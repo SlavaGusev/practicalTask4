@@ -19,9 +19,9 @@ module.exports = class StringUtils {
   }
 
     /**
-   * Get first float number from string
+   * Get float numbers array from string
    * @param {string} str current string
-   * @returns {number} result float number
+   * @returns {numbers} Array result float numbers array
    */
     static getFloatNumbersFromString(str) {
       let numbers = str.match(/\d+(\.\d)?(\d+)?/g);

@@ -7,15 +7,15 @@ class MainPage extends BaseForm {
       super('//div[contains(@class, "home_ctn")]', 'Main Page');
    }
 
-   #searchInput = new Element('//input[@id="store_nav_search_term"]', 'Search Input')
-   #searchButton = new Element('//a[@id="store_search_link"]/img', 'Search Button')
+   #categoriesMenuItem = new Element('//a[@class="pulldown_desktop" and contains(text(), "Categories")]', 'Categories menu item')   
+   #menuSubItem = (name) => { return new Element(`//a[@class="popup_menu_item" and contains(text(), "${name}")]`, 'Action menu subitem') }
 
-   async fillSearchInput(text) {
-      await this.#searchInput.type(text);
+   async categoriesMenuItemMoveTo() {
+      return this.#categoriesMenuItem.moveTo();
    }
-   
-   async searchButtonClick() {
-      await this.#searchButton.click();
+
+   async menuSubItemClick(name) {
+      return this.#menuSubItem(name).click();
    }
 }
 

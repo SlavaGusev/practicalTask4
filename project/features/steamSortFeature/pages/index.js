@@ -1,7 +1,15 @@
 const mainPage = require('./mainPage');
-const searchPage = require('./searchPage');
+const actionPage = require('./actionPage');
+const ageVerificationPage = require('./ageVerificationPage');
+const verificationPage = require('./verificationPage');
+const gamePage = require('./gamePage');
+const steamDownloadPage = require('./steamDownloadPage');
 
 module.exports = {
    mainPage,
-   searchPage
+   actionPage,
+   ageVerificationPage,
+   verificationPage,
+   gamePage,
+   steamDownloadPage,
 }

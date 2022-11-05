@@ -1,3 +1,5 @@
 {
-    "baseUrl": "https://store.steampowered.com"
+    "baseUrl": "https://store.steampowered.com",
+    "validYear": "1984",
+    "fileName": "SteamSetup.exe"
 }

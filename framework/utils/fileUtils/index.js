@@ -1,6 +1,6 @@
 const Logger = require("../../logger");
 const fs = require("fs");
-const timeouts = require("../../../../configs/environment/timeouts");
+const timeouts = require("../../../configs/environment/timeouts");
 
 module.exports = class FileUtils {
   /**

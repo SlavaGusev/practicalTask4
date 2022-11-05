@@ -11,6 +11,7 @@ module.exports = new (class Browser {
    */
   getBrowser() {
     return $browserName ? browser[$browserName] : browser;
+    // return browser;
   }
 
   /**
