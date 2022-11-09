@@ -1,5 +1,5 @@
 const timeouts = {
-    explicit: 5000,
+    explicit: 8000,
     pageLoadTime: 5000,
     polling: 500
 }

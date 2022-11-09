@@ -1,5 +1,7 @@
 const setupBrowser = require("./framework/browserActions");
-const config = require("./project/configs/config");
+const config = require("./project/configs/config.json");
+const FileUtils = require("./framework/utils/fileUtils");
+const downDir = require("./config");
 
 exports.config = {
     specs: [
@@ -34,5 +36,8 @@ exports.config = {
         await setupBrowser();
         await browser.maximizeWindow();
         await browser.url(config.baseUrl);
+    },
+	afterScenario: async () => {
+        FileUtils.deleteFile(downDir, config.fileName)
     }
 }

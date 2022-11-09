@@ -45,6 +45,7 @@ class ActionPage extends BaseForm {
 
    async gameItemClick(name) {
       await this.#gameItemByName(name).scrollIntoView({block: 'center'});
+      await this.#gameItemByName(name).moveTo({xOffset: -10, yOffset: 10});
       await this.#gameItemByName(name).state().waitForClickable();
       return this.#gameItemByName(name).click();
    }

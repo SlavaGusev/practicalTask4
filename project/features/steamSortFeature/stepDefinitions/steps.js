@@ -34,7 +34,7 @@ When(/^I go on the to the chosen game page$/, async () => {
     await actionPage.gameItemClick(game.position);
     const browser = require('../../../../framework/browser');
     await browser.switchToLastWindow();
-    if (await ageVerificationPage.waitForFormIsOpened()) {
+    if (await ageVerificationPage.waitForFormIsOpened() || await actionPage.waitForFormIsOpened()) {
         await ageVerificationPage.fillValidData();
         await ageVerificationPage.viewPageClick();
     } else

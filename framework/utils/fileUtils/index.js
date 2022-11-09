@@ -1,6 +1,7 @@
 const Logger = require("../../logger");
 const fs = require("fs");
 const timeouts = require("../../../configs/environment/timeouts");
+const path = require("path");
 
 module.exports = class FileUtils {
   /**
@@ -30,6 +31,15 @@ module.exports = class FileUtils {
     Logger.info(`Get file names from in ${dir}`);
     return fs.readdirSync(dir);
   }
+
+    /**
+   * Delete file from directory
+   * @param {string} dir Directory
+   */
+     static deleteFile(dir, filename) {
+      Logger.info(`Delete file from ${dir}`);
+      return fs.unlinkSync(path.join(dir, filename));
+    }
 
   /**
    * Read file line

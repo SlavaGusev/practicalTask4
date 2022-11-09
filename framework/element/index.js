@@ -223,10 +223,10 @@ module.exports = class Element {
    * Move to element
    * @returns {Promise<void>}
    */
-  async moveTo() {
+  async moveTo(offset) {
     Logger.info(`Move to "${this.name}"`);
     await this.state().assertIsExist();
-    return (await $(this.locator)).moveTo();
+    return offset ? (await $(this.locator)).moveTo(offset) : (await $(this.locator)).moveTo();
   }
 
   /**
