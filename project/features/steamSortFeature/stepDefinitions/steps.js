@@ -4,6 +4,7 @@ const assert = require("chai").assert;
 const downDir = require('../../../../config.js');
 const path = require("path");
 const FileUtils = require('../../../../framework/utils/fileUtils');
+const browserMethods = require('../../../../framework/browser');
 
 let game;
 
@@ -16,24 +17,17 @@ When(/^I am choosing '(.+)' games from the menu$/, async (genre) => {
     await mainPage.menuSubItemClick(genre);
 });
 
-Then(/^I am on the action page$/, async () => {
-    assert.isTrue(await actionPage.waitForFormIsOpened(), 'Main page did not opened');
-});
-
 When(/^I am choosing '(.+)' category$/, async (category) => {
     await actionPage.categoryItemClick(category);
 });
 
-When(/^Pick the game with the (biggest|smallest) discount$/, async (discount) => {
-    if (discount === 'biggest') {
-        game = await actionPage.getGameWithBiggestDiscount();    
-    }
+When(/^Pick the game with the biggest discount$/, async (discount) => {
+    game = await actionPage.getGameWithBiggestDiscount();   
 });
 
 When(/^I go on the to the chosen game page$/, async () => {
     await actionPage.gameItemClick(game.position);
-    const browser = require('../../../../framework/browser');
-    await browser.switchToLastWindow();
+    await browserMethods.switchToLastWindow();
     if (await ageVerificationPage.waitForFormIsOpened() || await actionPage.waitForFormIsOpened()) {
         await ageVerificationPage.fillValidData();
         await ageVerificationPage.viewPageClick();
@@ -41,6 +35,10 @@ When(/^I go on the to the chosen game page$/, async () => {
     if (await verificationPage.waitForFormIsOpened()) {
         await verificationPage.viewPageClick();
     }
+});
+
+Then(/^I am on the action page$/, async () => {
+    assert.isTrue(await actionPage.waitForFormIsOpened(), 'Main page did not opened');
 });
 
 Then(/^I am on the game page$/, async () => {
