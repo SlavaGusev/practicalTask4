@@ -10,7 +10,7 @@ module.exports = new (class Browser {
    * @returns {Browser} Browser
    */
   getBrowser() {
-    return $browserName ? browser[$browserName] : browser;
+    return browser;
   }
 
   /**
