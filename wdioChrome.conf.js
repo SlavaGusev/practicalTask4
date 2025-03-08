@@ -1,5 +1,8 @@
 const configWDIO = require("./wdio.conf");
 const downDir = require("./config");
+const path = require('path');
+const os = require('os');
+const fs = require('fs');
 
 exports.config = {
     capabilities: [{
@@ -13,6 +16,7 @@ exports.config = {
             args: [
                 '--headless',
                 '--safebrowsing-disable-download-protection',
+                `--user-data-dir=${fs.mkdtempSync(path.join(os.tmpdir(), 'chrome-user-data-'))}`
             ],
         },
         acceptInsecureCerts: true
