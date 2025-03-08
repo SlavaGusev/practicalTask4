@@ -11,6 +11,7 @@ exports.config = {
                 'download.default_directory': downDir,
             },
             args: [
+                '--headless',
                 '--safebrowsing-disable-download-protection',
             ],
         },
