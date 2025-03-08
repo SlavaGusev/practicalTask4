@@ -6,6 +6,11 @@ exports.config = {
         maxInstances: 4,
         browserName: 'firefox',
         'moz:firefoxOptions': {
+            args: [
+                '--headless',
+                '--safebrowsing-disable-download-protection',
+                '--incognito',
+            ],
             'prefs': {
                 'intl.accept_languages': 'en,en_EN',
                 'browser.download.folderList': 2,

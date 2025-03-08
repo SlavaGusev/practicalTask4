@@ -16,6 +16,7 @@ exports.config = {
             args: [
                 '--headless',
                 '--safebrowsing-disable-download-protection',
+                '--incognito',
                 `--user-data-dir=${fs.mkdtempSync(path.join(os.tmpdir(), 'chrome-user-data-'))}`
             ],
         },
