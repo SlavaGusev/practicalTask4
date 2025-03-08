@@ -1,5 +1,6 @@
 const configWDIO = require("./wdio.conf");
 const downDir = require("./config");
+import { v4 as uuidv4 } from 'uuid';
 
 exports.config = {
     capabilities: [{
@@ -14,7 +15,7 @@ exports.config = {
                 '--headless',
                 '--safebrowsing-disable-download-protection',
                 '--incognito',
-                `--user-data-dir=app/chrome-user-data`
+                `--user-data-dir=/tmp/chrome-user-data-${uuidv4()}`
             ],
         },
         acceptInsecureCerts: true
