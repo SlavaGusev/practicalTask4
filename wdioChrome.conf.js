@@ -11,7 +11,7 @@ exports.config = {
         'goog:chromeOptions': {
             'prefs': {
                 'safebrowsing.enabled': true,
-                'download.default_directory': downDir,
+                // 'download.default_directory': downDir,
             },
             args: [
                 '--headless',
